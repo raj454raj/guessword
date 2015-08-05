@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>Welcome</title>
+	<style>
+		body{
+			background-color: #404040;
+			color : white; 
+		}
+
+		a{
+			text-decoration: none;
+			color:white;
+		}
+		.button{
+			background-color: #00ff00; 
+			padding:10px;
+			height:20px;
+			width:115px;
+			text-align: center;
+			border-radius:10px;
+			cursor: pointer;
+		}
+		#loginbut{
+			margin-left:15%;
+			margin-top:15%;
+		}
+		#signinbut{
+			margin-left:15%;
+			margin-top:1%;
+		}
+		#signinform{
+			
+			position: absolute;
+			left:60%;
+			top:24%;
+			height:57%;
+			width:20%;
+			background-color:#C0C0C0; 
+			padding-left: 5%; 
+			border-radius: 5px;
+
+		}
+	</style>
+</head>
+<body>
+	<h1 style="text-align:center">GuessWord</h1>
+	<div id="loginbut" class="button"><%= link_to 'Log In', :controller => 'sessions', :action => 'new' %></div>
+	<br/>
+	<div id="signinbut" class="button"><a href="/user/signin">Sign Up</a></div>
+	<div id = "signinform">
+	<%= form_for :user, :url => {:action => 'create'} do |f| %>
+  	<p>
+    	<%= f.label :Name %><br>
+    	<%= f.text_field :name %>
+  	</p>
+  	<p>
+   		<%= f.label :Username %><br>
+    	<%= f.text_field :username %>
+  	</p>
+    <p>
+   		<%= f.label :Email %><br>
+    	<%= f.email_field :email %>
+  	</p>
+    <p>
+   		<%= f.label 'Choose Password' %><br>
+    	<%= f.password_field :password %>
+  	</p>
+ 	 <p>
+   		<%= f.label 'Confirm Password' %><br>
+    	<%= f.password_field :password_confirmation %>
+  	</p>
+ 	<p>
+    	<%= f.submit  'Sign In'%>
+  	</p>
+	<% end %>
+	</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>Welcome</title>
+	<style>
+		body{
+			background-color: #404040;
+			color : white; 
+		}
+
+		a{
+			text-decoration: none;
+			color:white;
+		}
+		.button{
+			background-color: #00ff00; 
+			padding:10px;
+			height:20px;
+			width:115px;
+			text-align: center;
+			border-radius:10px;
+			cursor: pointer;
+		}
+		#loginbut{
+			margin-left:15%;
+			margin-top:15%;
+		}
+		#signinbut{
+			margin-left:15%;
+			margin-top:1%;
+		}
+		#loginform{
+			position: absolute;
+			left:60%;
+			top:30%;
+		}
+	</style>
+</head>
+<body>
+	<h1 style="text-align:center">GuessWord</h1>
+	<div id="loginbut" class="button"><a href="/user/login">Log in</a></div>
+	<br/>
+	<div id="signinbut" class="button"><a href="/user/signin">Sign Up</a></div>
+	<div id = "loginform">
+	<%= form_for :user, :url => {:action => 'create'} do |f| %>
+    <p>
+   		<%= f.label :Email %><br>
+    	<%= f.email_field :email %>
+  	</p>
+    <br/>
+    <p>
+   		<%= f.label 'Password' %><br>
+    	<%= f.password_field :password %>
+  	</p>
+ 	<p>
+    	<%= f.submit  'Log In'%>
+  	</p>
+	<% end %>
+	</div>
+</body>
+</html>
